@@ -3,7 +3,7 @@ import {MedicosService} from './medicos.service';
 import {from, EMPTY, throwError} from 'rxjs';
  
  
-describe('MedicosComponent', () => {
+describe('MEDICOS COMPONENT', () => {
  
   let componente: MedicosComponent;
   const servicio = new MedicosService(null);
@@ -46,6 +46,7 @@ describe('MedicosComponent', () => {
     expect(componente.medicos.indexOf(medico)).toBeGreaterThanOrEqual(0);
  
   });
+
     it('Si falla la adición, la propiedad mensajeError, debe ser igual al error del servicio', () => {
     const miError = 'No se pudo agregar el médico';
     spyOn(servicio, 'agregarMedico').and.returnValue(throwError(miError));
@@ -53,7 +54,7 @@ describe('MedicosComponent', () => {
     expect(componente.mensajeError).toBe(miError);
   });
  
-      it('Debe de llamar al servidor para borrar un médico', () => {
+    it('Debe de llamar al servidor para borrar un médico', () => {
     spyOn(window, 'confirm').and.returnValue(true);
     const espia = spyOn(servicio, 'borrarMedico').and.returnValue(EMPTY);
     componente.borrarMedico('1');
@@ -67,7 +68,5 @@ describe('MedicosComponent', () => {
     componente.borrarMedico('1');
     expect(espia).not.toHaveBeenCalledWith('1');
   });
- 
- 
 });
 
