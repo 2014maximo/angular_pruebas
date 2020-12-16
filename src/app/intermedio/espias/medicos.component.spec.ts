@@ -12,6 +12,8 @@ describe('MEDICOS COMPONENT', () => {
     componente = new MedicosComponent(servicio);
   });
  
+
+
  
   it('Init: Debe de cargar los médicos', () => {
  
@@ -35,6 +37,10 @@ describe('MEDICOS COMPONENT', () => {
  
   });
  
+/*   
+  En esta prueba el spyOn simula la ejecución del servicio agregarMedico, se ejecuta el método agregarMedico directamente y actua el SpyOn.
+  Y a través del expect se verifica que el contenido sea mayor a Cero
+*/
  it('Debe de agregar un nuevo médido al arreglo de Médicos', () => {
  
     const medico = {id: 1, nombre: 'David'};
